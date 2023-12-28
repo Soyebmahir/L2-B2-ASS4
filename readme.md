@@ -269,3 +269,262 @@ response
     }
 }
 ```
+
+## 6. Create a Category (Only Admin can do this)
+
+```
+ Put: https://assignment-4-livid-eight.vercel.app/api/categories
+
+```
+
+```Request Body:
+{
+    "name": "Web Development"
+}
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 201,
+    "message": "Category created successfully",
+    "data": {
+        "_id": "12345abcde67890fghij",
+        "name": "Web Development",
+        "createdBy": "adminUserId",
+        "createdAt": "2023-01-15T12:00:00.000Z",
+        "updatedAt": "2023-01-15T12:00:00.000Z"
+    }
+}
+```
+
+## 7. Get All Categories
+
+```
+ GET: https://assignment-4-livid-eight.vercel.app/api/courses/:courseId/reviews
+
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Categories retrieved successfully",
+    "data": {
+        "categories": [
+            {
+                "_id": "12345abcde67890fghij",
+                "name": "Web Development",
+                "createdBy": {  // Include an addition during assignment 4
+                    "_id": "adminUserId",
+                    "username": "adminUser",
+                    "email": "admin@example.com",
+                    "role": "admin"
+                },
+                "createdAt": "2023-01-15T12:00:00.000Z",
+                "updatedAt": "2023-01-15T12:00:00.000Z"
+            },
+            // ... other categories
+        ]
+    }
+}
+```
+
+## 8. Create a Review (Only the user can do this)
+
+```
+ POST: https://assignment-4-livid-eight.vercel.app/api/reviews
+
+```
+
+```reqest
+{
+    "courseId": "67890fghij54321abcde",
+    "rating": 4,
+    "review": "Great course, very informative and well-structured."
+}
+
+```
+
+```response
+{
+    "courseId": "67890fghij54321abcde",
+    "rating": 4,
+    "review": "Great course, very informative and well-structured."
+}
+```
+
+## 9\*\*. Update a Course (Only Admin can do this)
+
+```
+ PUT: https://assignment-4-livid-eight.vercel.app/api/courses/:courseId
+
+```
+
+```reqest
+{
+    "price": 59.99,
+    "tags": [
+        {"name": "Programming", "isDeleted": false},
+        {"name": "Web Development", "isDeleted": false},
+        {"name": "JavaScript", "isDeleted": false}
+    ],
+    "details": {
+        "level": "Intermediate",
+        "description": "A comprehensive course on web development with a focus on JavaScript."
+    }
+}
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Course updated successfully",
+    "data": {
+        "_id": "67890fghij54321abcde",
+        "title": "Introduction to Web Development",
+        "instructor": "John Smith",
+        "categoryId": "12345abcde67890fghij",
+        "price": 59.99,
+        "tags": [
+            {"name": "Programming", "isDeleted": false},
+            {"name": "Web Development", "isDeleted": false},
+            {"name": "JavaScript", "isDeleted": false}
+        ],
+        "startDate": "2023-02-01",
+        "endDate": "2023-04-01",
+        "language": "English",
+        "provider": "Tech Academy",
+        "durationInWeeks": 8,
+        "details": {
+            "level": "Intermediate",
+            "description": "A comprehensive course on web development with a focus on JavaScript."
+        },
+        "createdBy": {   // Include an addition during assignment 4
+            "_id": "adminUserId",
+            "username": "adminUser",
+            "email": "admin@example.com",
+            "role": "admin"
+        },
+        "createdAt": "2023-01-15T12:00:00.000Z",
+        "updatedAt": "2023-01-16T12:30:00.000Z"
+    }
+}
+```
+
+## 10\*\*. Get Course by ID with Reviews
+
+````
+ GET: https://assignment-4-livid-eight.vercel.app/api/courses/:courseId/reviews
+
+
+
+```response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Course with reviews retrieved successfully",
+    "data": {
+        "course": {
+            "_id": "67890fghij54321abcde",
+            "title": "Introduction to Web Development",
+            "instructor": "John Smith",
+            "categoryId": "12345abcde67890fghij",
+            "price": 59.99,
+            "tags": [
+                {"name": "Programming", "isDeleted": false},
+                {"name": "Web Development", "isDeleted": false},
+                {"name": "JavaScript", "isDeleted": false}
+            ],
+            "startDate": "2023-02-01",
+            "endDate": "2023-04-01",
+            "language": "English",
+            "provider": "Tech Academy",
+            "durationInWeeks": 8,
+            "details": {
+                "level": "Intermediate",
+                "description": "A comprehensive course on web development with a focus on JavaScript."
+            },
+            "createdBy": {   // Include an addition during assignment 4
+                "_id": "adminUserId",
+                "username": "adminUser",
+                "email": "admin@example.com",
+                "role": "admin"
+            },
+            "createdAt": "2023-01-15T12:00:00.000Z",
+            "updatedAt": "2023-01-16T12:30:00.000Z"
+        },
+        "reviews": [
+            {
+                "_id": "98765fghij43210lkji",
+                "courseId": "67890fghij54321abcde",
+                "rating": 4,
+                "review": "Great course, very informative and well-structured.",
+                "createdBy": {    // Include an addition during assignment 4
+                    "_id": "userid",
+                    "username": "username",
+                    "email": "user@example.com",
+                    "role": "user"
+                },
+                "createdAt": "2023-01-15T12:00:00.000Z",
+                "updatedAt": "2023-01-15T12:00:00.000Z"
+            },
+            // ... other reviews
+        ]
+    }
+}
+````
+
+## 11**. Get the Best Course Based on Average Review (Rating)**
+
+```
+ GET: https://assignment-4-livid-eight.vercel.app/api/course/best
+
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Best course retrieved successfully",
+    "data": {
+        "course": {
+            "_id": "23245dsfd453242348rFcg",
+            "title": "Best Book Title",
+            "instructor": "New Instructor",
+            "categoryId": "123456789012345678901234",
+            "price": 59.99,
+            "tags": [
+                {
+                    "name": "Programming",
+                    "isDeleted": false
+                },
+                {
+                    "name": "Web Development",
+                    "isDeleted": false
+                }
+            ],
+            "startDate": "2023-02-01",
+            "endDate":"2023-03-14",
+            "language": "Spanish",
+            "provider": "Code Masters",
+            "durationInWeeks": 6,
+            "details": {
+                "level": "Intermediate",
+                "description": "Detailed description of the course"
+            },
+            "createdBy": {
+                "_id": "userid",
+                "username": "username",
+                "email": "user@example.com",
+                "role": "user"
+            },
+            "createdAt": "2023-01-15T12:00:00.000Z",
+            "updatedAt": "2023-01-15T12:00:00.000Z"
+        },
+        "averageRating": 4.8,
+        "reviewCount": 50
+    }
+}
+```
