@@ -180,3 +180,92 @@ for query parameters example
 }
 
 ```
+
+## 4. Change Password
+
+```
+ POST: https://assignment-4-livid-eight.vercel.app/api/auth/change-password
+
+```
+
+```request
+{
+    "currentPassword": "123456",
+    "newPassword": "new123456"
+}
+
+response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Password changed successfully",
+    "data": {
+        "_id": "54321abcde67890fghij",
+        "username": "john_doe",
+        "email": "john@example.com",
+        "role": "user",
+        "createdAt": "2023-01-01T12:00:00.000Z",
+        "updatedAt": "2023-01-02T12:30:00.000Z"
+    }
+}
+```
+
+## 5. Create a Course (Only Admin can do this)
+
+```
+ POST: https://assignment-4-livid-eight.vercel.app/api/courses
+
+```
+
+```Request Body:
+{
+    "title": "Introduction to Web Development",
+    "instructor": "John Smith",
+    "categoryId": "12345abcde67890fghij",
+    "price": 49.99,
+    "tags": [
+        {"name": "Programming", "isDeleted": false},
+        {"name": "Web Development", "isDeleted": false}
+    ],
+    "startDate": "2023-02-01",
+    "endDate": "2023-04-01",
+    "language": "English",
+    "provider": "Tech Academy",
+    "durationInWeeks": 8,
+    "details": {
+        "level": "Beginner",
+        "description": "A comprehensive introduction to web development."
+    }
+}
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 201,
+    "message": "Course created successfully",
+    "data": {
+        "_id": "67890fghij54321abcde",
+        "title": "Introduction to Web Development",
+        "instructor": "John Smith",
+        "categoryId": "12345abcde67890fghij",
+        "price": 49.99,
+        "tags": [
+            {"name": "Programming", "isDeleted": false},
+            {"name": "Web Development", "isDeleted": false}
+        ],
+        "startDate": "2023-02-01",
+        "endDate": "2023-04-01",
+        "language": "English",
+        "provider": "Tech Academy",
+        "durationInWeeks": 8,
+        "details": {
+            "level": "Beginner",
+            "description": "A comprehensive introduction to web development."
+        },
+        "createdBy": "adminUserId", // Include an addition during assignment 4
+        "createdAt": "2023-01-15T12:00:00.000Z",
+        "updatedAt": "2023-01-15T12:00:00.000Z"
+    }
+}
+```
