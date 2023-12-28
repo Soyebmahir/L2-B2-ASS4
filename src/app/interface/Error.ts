@@ -8,7 +8,7 @@ export type TGenericErrorResponse = {
     message: string,
     errorMessage: string,
     errorDetails: object,
-    stack: string | null;
+    stack?: string | null;
 
 
 }

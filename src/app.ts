@@ -15,7 +15,7 @@ app.use(cors());
 app.use('/api', router);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Assignment@3 server is running');
+  res.send('Assignment@4 server is running');
 });
 
 app.use(globalErrorHandler);
