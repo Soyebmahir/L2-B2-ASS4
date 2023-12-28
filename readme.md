@@ -8,11 +8,20 @@
 https://github.com/Porgramming-Hero-web-course/l2b2a4-course-review-with-auth-Soyebmahir
 ```
 
+# credential
+
 # Admin
 
 {
 "username": "soyeb",
 "password": "123456"
+}
+
+# user
+
+{
+"username": "john_doe",
+"password": "new123456"
 }
 
 #### Requirements
