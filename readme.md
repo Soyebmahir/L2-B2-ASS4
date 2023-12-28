@@ -65,3 +65,85 @@ npm run start:dev
     }
 }
 ```
+
+## 2. Get Paginated and Filtered Courses
+
+```
+ get: https://assignment-4-livid-eight.vercel.app/api/courses
+
+```
+
+for query parameters example
+
+```
+?page=2
+?limit=10
+
+?sortBy=startDate or( title, price, startDate, endDate, language, durationInWeeks) any field name
+
+?sortOrder=desc or asc
+
+?minPrice=20.00&maxPrice=50.00
+
+?tags=Programming
+
+?startDate=2023-01-01&endDate=2023-12-31
+
+?language=English
+
+?provider=Tech Academy
+
+?durationInWeeks=8
+
+?level=Intermediate
+
+```
+
+```response
+
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Courses retrieved successfully",
+    "meta": {
+        "page": 1,
+        "limit": 10,
+        "total": 50
+    },
+    "data": [
+        {
+            "_id": "23245dsfd453242348rFcg",
+            "title": "Sample Course",
+            "instructor": "Jane Doe",
+            "categoryId": "123456789012345678901234",
+            "price": 49.99,
+            "tags": [
+                {
+                    "name": "Programming",
+                    "isDeleted": false
+                },
+                {
+                    "name": "Web Development",
+                    "isDeleted": false
+                }
+            ],
+            "startDate": "2023-01-15",
+            "endDate":"2023-03-14",
+            "language": "English",
+            "provider": "Tech Academy",
+            "durationInWeeks": 9,
+            "details": {
+                "level": "Intermediate",
+                "description": "Detailed description of the course",
+            }
+             "createdBy": {
+                    "_id": "adminUserId",
+                    "username": "adminUser",
+                    "email": "admin@example.com",
+                    "role": "admin"
+                },
+        },
+        // more courses
+    ]
+}
+```
