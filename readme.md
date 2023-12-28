@@ -147,3 +147,36 @@ for query parameters example
     ]
 }
 ```
+
+## 3. User Login
+
+```
+ POST: https://assignment-4-livid-eight.vercel.app/api/auth/login
+
+```
+
+```Request Body:
+{
+    "username": "john_doe",
+    "password": "123456"
+}
+
+```
+
+```response
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "User login successful",
+    "data": {
+        "user": {
+            "_id": "54321abcde67890fghij",
+            "username": "john_doe",
+            "email": "john@example.com",
+            "role": "user"
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    }
+}
+
+```
