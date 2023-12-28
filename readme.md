@@ -1,16 +1,16 @@
-# To start Locally :
+# Course Review
 
-```ts
-//development
-npm run start:dev
+- Requirement Analysis: [click here](https://docs.google.com/document/d/1e9IsrlrDxMM7Y5-lInUfd6JUDeffNTVa_uf-X77LaOg/edit?usp=sharing)
 
-// production
-npm run build
-npm run start:prod
-
+## Clone Repository
 
 ```
+https://github.com/Porgramming-Hero-web-course/l2b2a4-course-review-with-auth-Soyebmahir
+```
 
-# vercel Live Link
+# Admin
 
-[https://course-review-woad.vercel.app/](https://course-review-woad.vercel.app/)
+{
+"username": "soyeb",
+"password": "123456"
+}
